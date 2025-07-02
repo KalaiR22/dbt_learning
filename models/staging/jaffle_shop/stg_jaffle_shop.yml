@@ -1,8 +1,10 @@
 version: 2
 models:
   - name: raw_jaffle_shop__orders
+    description: testing columns of  the order table 
     columns:
       - name: order_id
+        description: "{{ docs('orderdocs')}}"
         tests:
           - unique
           - not_null
