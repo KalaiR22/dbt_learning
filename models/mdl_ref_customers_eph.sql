@@ -1,0 +1,1 @@
+select * from {{ ref('customer_eph_ref') }}

@@ -4,11 +4,11 @@ models:
     description: testing columns of  the order table 
     columns:
       - name: order_id
-        description: "{{ docs('orderdocs')}}"
+        # description: "{{ docs('orderdocs')}}"
         tests:
           - unique
           - not_null
-      # - name: status
-      #   tests:
-      #     - accepted_values:
-      #       values: [ 'return_pending','shipped','completed','returned','placed']
+      - name: status
+        tests:
+          - accepted_values:
+            values: [ 'return_pending','shipped','completed','returned','placed']
