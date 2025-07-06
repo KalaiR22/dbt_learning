@@ -6,4 +6,5 @@ sources:
     tables:
       - name: customers
       - name: orders
+      - name: try_snapshot
 

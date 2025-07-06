@@ -1,10 +1,13 @@
+
+
 {{
     config(
         materialized='incremental',
-        unique_key='customer_id',
-        tags ='cust'
+        incremental_strategy = 'append',
+     
     )
 }}
+
 
 with customers as (
 
@@ -57,9 +60,9 @@ final as (
 
 )
 
-select * from final
+select * from orders
 
 {% if is_incremental() %}
     -- this filter will only be applied on an incremental run
-    where order_date> (select max(order_date) from {{ this }}) 
+    where order_date>= (select max(order_date) from {{ this }}) 
 {% endif %}
